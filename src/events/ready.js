@@ -1,6 +1,4 @@
 const mongoouse = require("mongoose")
-const { Database } = require("../../config.json")
-
 
 module.exports = {
     name: 'ready',
@@ -21,7 +19,7 @@ module.exports = {
         console.log('| ———————————————————————————————— |');
 
     if(!Database) return;
-    mongoouse.connect(Database, {
+    mongoouse.connect(process.env.DATABASE, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => {
